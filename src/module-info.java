@@ -1,0 +1,2 @@
+module mecanismos_sincroniacao {
+}
