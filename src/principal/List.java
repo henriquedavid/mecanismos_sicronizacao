@@ -62,7 +62,7 @@ public class List {
 			}
 			
 			while(buffer.size() == capacity) {
-				System.out.println("A lista está cheia!");
+				System.out.println("A lista está cheia");
 				isFull.await();
 			}
 			
@@ -113,7 +113,7 @@ public class List {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		} catch (IndexOutOfBoundsException e) {
-			e.printStackTrace();
+//			e.printStackTrace();
 		} finally {
 			lock.unlock();
 		}
