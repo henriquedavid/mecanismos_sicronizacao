@@ -1,12 +1,19 @@
 package principal;
 
+/**
+ * 
+ * @author Abraão Vitor e Henrique David
+ * 
+ * Classe principal responsável por realizar os testes.
+ * 
+ * */
 public class ListaEncadeada {
 	
 	private static final int CAPACITY = 100;
 	private static final int NUM_THREADS = 10000;
 	
 	public static void main(String[] args) {
-		
+		for(int o = 0; o < 20; o++) {
 		List lista = new List(CAPACITY);
 		
 		Reader reader[] = new Reader[NUM_THREADS];
@@ -33,6 +40,7 @@ public class ListaEncadeada {
 			}
 		} catch(InterruptedException e) {
 			e.printStackTrace();
+		}
 		}
 		
 		

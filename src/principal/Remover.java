@@ -1,5 +1,13 @@
 package principal;
 
+/**
+ * 
+ * @author Abraão Vitor e Henrique David
+ * 
+ * Thread responsável por realizar a operação de remoção na 
+ * lista.
+ * 
+ * */
 public class Remover extends Thread{
 
 	private List list;

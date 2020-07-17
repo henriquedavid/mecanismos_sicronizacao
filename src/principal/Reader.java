@@ -1,5 +1,13 @@
 package principal;
 
+/**
+ * 
+ * @author Abraão Vitor e Henrique David
+ * 
+ * Thread responsável por realizar a leitura de uma
+ * determinada posição na lista.
+ * 
+ * */
 public class Reader extends Thread{
 	
 	private int capacity;

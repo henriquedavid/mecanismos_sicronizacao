@@ -10,6 +10,10 @@ import java.util.concurrent.locks.ReentrantLock;
  * @author Abraão Dantas
  * @author Henrique David
  * 
+ * Classe responsável por controlar as operações de escrita, remoção e
+ * recuperação de um valor em uma determinada posição, além de realizar
+ * os tratamentos para evitar ocorrências de deadlock, livelock e starvation.
+ * 
  * */
 
 public class List {

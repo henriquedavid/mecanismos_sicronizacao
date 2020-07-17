@@ -1,5 +1,13 @@
 package principal;
 
+/**
+ * 
+ * @author Abraão Vitor e Henrique David
+ * 
+ * Thread responsável por realizar as operações de
+ * escrita na lista.
+ * 
+ * */
 public class Writer extends Thread{
 	
 	private List list;
