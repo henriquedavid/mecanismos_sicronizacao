@@ -13,7 +13,7 @@ public class Reader extends Thread{
 	
 	@Override
 	public void run() {
-		int position = (int) (Math.random() * 10);
+		int position = (int) (Math.random() * list.size());
 		System.out.println("Thread " + this.getName() + " vai ler");
 		Integer v = list.find(position);
 		System.out.println("Thread " + this.getName() + " - Lista[" + position + "] = " + v);

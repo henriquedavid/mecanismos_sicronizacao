@@ -51,6 +51,10 @@ public class List {
 		removers_waiting = 0;
 	}
 	
+	public int size() {
+		return buffer.size();
+	}
+	
 	public void insert(Integer i) {
 		lock.lock();
 		try {
