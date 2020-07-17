@@ -106,7 +106,10 @@ public class List {
 			}
 			
 			++searchers;
-			find = buffer.get(pos);
+			if(pos < buffer.size())
+				find = buffer.get(pos);
+			else
+				System.out.println("Posição não existe");
 			--searchers;
 			
 			if(removers_waiting > 0) {
@@ -117,7 +120,7 @@ public class List {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		} catch (IndexOutOfBoundsException e) {
-//			e.printStackTrace();
+			e.printStackTrace();
 		} finally {
 			lock.unlock();
 		}

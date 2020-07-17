@@ -2,8 +2,8 @@ package principal;
 
 public class ListaEncadeada {
 	
-	private static final int CAPACITY = 50;
-	private static final int NUM_THREADS = 100;
+	private static final int CAPACITY = 100;
+	private static final int NUM_THREADS = 10000;
 	
 	public static void main(String[] args) {
 		
