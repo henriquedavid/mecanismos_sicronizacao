@@ -9,16 +9,24 @@ package principal;
  * 
  * */
 public class Reader extends Thread{
-	
-	private int capacity;
+	// Lista a ser buscado valor em uma posição
 	private List list;
 	
-	public Reader(String name, int cap, List l_) {
+	/**
+	 * Construtor da classe Reader
+	 * 
+	 * @param name nome da thread
+	 * @param l_ lista a ser lido valores
+	 */
+	public Reader(String name, List l_) {
 		super(name);
-		this.capacity = cap;
 		this.list = l_;
 	}
-	
+
+	/**
+	 * Método para iniciar a thread e buscar um valor em uma
+	 * posição da lista.
+	 */
 	@Override
 	public void run() {
 		int position = (int) (Math.random() * list.size());

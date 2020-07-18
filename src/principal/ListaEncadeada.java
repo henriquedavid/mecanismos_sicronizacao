@@ -14,18 +14,22 @@ public class ListaEncadeada {
 	
 	public static void main(String[] args) {
 		for(int o = 0; o < 20; o++) {
+		// Inicializar lista com capacidade determinada
 		List lista = new List(CAPACITY);
 		
+		// Criar vetores das respectivas threads
 		Reader reader[] = new Reader[NUM_THREADS];
 		Remover remover[] = new Remover[NUM_THREADS];
 		Writer writer[] = new Writer[NUM_THREADS];
 		
+		// Inicializar cada thread
 		for(int i = 0; i < NUM_THREADS; i++) {
-			reader[i] = new Reader("Reader " + (i+1), CAPACITY, lista);
+			reader[i] = new Reader("Reader " + (i+1), lista);
 			remover[i] = new Remover("Remover " + (i+1), lista);
 			writer[i] = new Writer("Writer " + (i+1), lista);
 		}
 		
+		// Colocar threads para começar
 		for(int i = 0; i < NUM_THREADS; i++) {
 			reader[i].start();
 			remover[i].start();
@@ -33,6 +37,7 @@ public class ListaEncadeada {
 		}
 		
 		try {
+			// Esperar todas as threads finalizarem
 			for(int i = 0; i < NUM_THREADS; i++) {
 				reader[i].join();
 				remover[i].join();
@@ -44,6 +49,7 @@ public class ListaEncadeada {
 		}
 		
 		
+		// Informar que o programa foi finalizado
 		System.out.println("\nFINALIZADO");
 	}
 }
