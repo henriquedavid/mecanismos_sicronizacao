@@ -71,7 +71,7 @@ public class List {
 		
 		// Inicializar contabilizadores
 		searchers = 0;
-		inserters = 0;
+		inserters = 0;	
 		removers = 0;
 		
 		searchers_waiting = 0;
@@ -92,7 +92,6 @@ public class List {
 	 * @param i Valor a ser inserido 
 	 */
 	public void insert(Integer i) {
-		// Bloquear a thread
 		lock.lock();
 		try {
 			/*
