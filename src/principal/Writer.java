@@ -30,10 +30,8 @@ public class Writer extends Thread{
 	 */
 	@Override
 	public void run() {
-		int value = (int) (Math.random() * 50) + 1;
-		System.out.println("Thread " + this.getName() + " vai inserir");
+		int value = (int) (Math.random() * 50);
 		list.insert(value);
-		System.out.println("Thread " + this.getName() + " inseriu");
 	}
 
 }

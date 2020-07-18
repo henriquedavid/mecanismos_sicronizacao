@@ -9,11 +9,11 @@ package principal;
  * */
 public class ListaEncadeada {
 	
-	private static final int CAPACITY = 100;
-	private static final int NUM_THREADS = 10000;
+	private static final int CAPACITY = 30;
+	private static final int NUM_THREADS = 1000;
 	
 	public static void main(String[] args) {
-		for(int o = 0; o < 20; o++) {
+		for(int o = 0; o < 3; o++) {
 		// Inicializar lista com capacidade determinada
 		List lista = new List(CAPACITY);
 		

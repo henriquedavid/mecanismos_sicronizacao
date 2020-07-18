@@ -29,8 +29,7 @@ public class Remover extends Thread{
 	 */
 	@Override
 	public void run() {
-		System.out.println("Thread " + this.getName() + " vai remover");
-		list.remove();
-		System.out.println("Thread " + this.getName() + " removeu" );
+		int position = (int) (Math.random() * list.size());
+		list.remove(position);
 	}
 }

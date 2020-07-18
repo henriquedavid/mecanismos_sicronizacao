@@ -100,7 +100,7 @@ public class List {
 			 * no problema, logo colocando a thread para esperar até que será possível.
 			 */
 			if(inserters == 1 || removers == 1) {
-				System.out.println("Já há um processo de inserção ou remoção rodando!");
+				System.out.println(Thread.currentThread().getName() + ": Já há um processo de inserção ou remoção rodando!");
 				// Incrementar escritores esperando
 				++inserters_waiting;
 				// Coloca o processo para esperar
@@ -122,6 +122,7 @@ public class List {
 			inserters = 1;
 			// Adiciona o valor na lista
 			buffer.add(i);
+			System.out.println("Thread " + Thread.currentThread().getName() + " inseriu valor = " + i);
 			// Infoma que já foi inserido
 			inserters = 0;
 			
@@ -130,7 +131,7 @@ public class List {
 			 * possuem prioridade, por isso verifica se não há nenhuma thread
 			 * com essa finalidade esperando.
 			 */
-			if(removers_waiting > 0) {
+			if(removers_waiting > 0 && inserters == 0 && searchers == 0) {
 				// Informa que pode realizar a remoção
 				canRemove.signal();
 			} else {
@@ -186,10 +187,13 @@ public class List {
 			// Incrementa que mais uma thread está executando.
 			++searchers;
 			// Verifica se a posição informada é válida na lista
-			if(pos < buffer.size())
+			if(pos < buffer.size()) {
 				find = buffer.get(pos);
-			else
-				System.out.println("Posição não existe");
+				System.out.println("Thread " + Thread.currentThread().getName() + ": lista["+pos + "] = " + find);
+			}
+			else {
+				System.out.println("Thread " + Thread.currentThread().getName() + ": Posição não existe");
+			}
 			// Decrementa a quantidade de threads de busca executando
 			--searchers;
 			
@@ -220,7 +224,7 @@ public class List {
 	 * Função responsável por remover o elemento que se encontra na
 	 * cabeça da lista encadeada.
 	 */
-	public void remove() {
+	public void remove(int pos_) {
 		lock.lock();
 		try {
 			/*
@@ -246,8 +250,17 @@ public class List {
 			
 			//Informa que a thread de remoção irá executar.
 			removers = 1;
-			// Remove o último elemento da lista
-			buffer.removeLast();
+			try {
+				// Remove o elemento de uma posição da lista
+				if(pos_ < buffer.size()) {
+					buffer.remove(pos_);
+					System.out.println("Thread " + Thread.currentThread().getName() + " removeu valor na posição " + pos_);
+				} else {
+					System.out.println("Thread " + Thread.currentThread().getName() + ": Posição para remoção não válida.");
+				}
+			} catch(IndexOutOfBoundsException e) {
+				e.printStackTrace();
+			}
 			// Informa que foi realizada a remoção
 			removers = 0;
 			
