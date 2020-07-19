@@ -131,7 +131,7 @@ public class List {
 			 * possuem prioridade, por isso verifica se não há nenhuma thread
 			 * com essa finalidade esperando.
 			 */
-			if(removers_waiting > 0 && inserters == 0 && searchers == 0) {
+			if(removers_waiting > 0 && searchers == 0) {
 				// Informa que pode realizar a remoção
 				canRemove.signal();
 			} else {
