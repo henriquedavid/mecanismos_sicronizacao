@@ -30,6 +30,7 @@ public class Remover extends Thread{
 	@Override
 	public void run() {
 		int position = (int) (Math.random() * list.size());
+		System.out.println("============================= " + list.size());
 		list.remove(position);
 	}
 }

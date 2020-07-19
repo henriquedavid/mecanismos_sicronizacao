@@ -10,7 +10,7 @@ package principal;
 public class ListaEncadeada {
 	
 	private static final int CAPACITY = 30;
-	private static final int NUM_THREADS = 1000;
+	private static final int NUM_THREADS = 2000;
 	
 	public static void main(String[] args) {
 		for(int o = 0; o < 3; o++) {
