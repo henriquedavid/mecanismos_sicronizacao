@@ -262,7 +262,6 @@ public class List {
 				e.printStackTrace();
 			}
 			
-			Thread.sleep(1000);
 			// Informa que foi realizada a remoção
 			removers = 0;
 			

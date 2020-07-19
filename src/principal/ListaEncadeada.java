@@ -9,11 +9,11 @@ package principal;
  * */
 public class ListaEncadeada {
 	
-	private static final int CAPACITY = 30;
+	private static final int CAPACITY = 100;
 	private static final int NUM_THREADS = 2000;
 	
 	public static void main(String[] args) {
-		for(int o = 0; o < 3; o++) {
+		for(int o = 0; o < 100; o++) {
 		// Inicializar lista com capacidade determinada
 		List lista = new List(CAPACITY);
 		
@@ -24,9 +24,9 @@ public class ListaEncadeada {
 		
 		// Inicializar cada thread
 		for(int i = 0; i < NUM_THREADS; i++) {
-			reader[i] = new Reader("Reader " + (i+1), lista);
-			remover[i] = new Remover("Remover " + (i+1), lista);
-			writer[i] = new Writer("Writer " + (i+1), lista);
+			reader[i] = new Reader("Reader " + o + " - " + (i+1), lista);
+			remover[i] = new Remover("Remover " + o + " - " + (i+1), lista);
+			writer[i] = new Writer("Writer " + o + " - " + (i+1), lista);
 		}
 		
 		// Colocar threads para começar
